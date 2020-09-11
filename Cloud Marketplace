@@ -1,0 +1,40 @@
+# LAB: Google Cloud Fundamentals: Getting Started with Cloud Marketplace
+# Objectives
+# In this lab, you learn how to launch a solution using Cloud Marketplace.
+# Steps:
+# 1. Start LAMP
+sudo opt/lampp/lampp start
+
+#2. For Zone, select the deployment zone that Qwiklabs assigned to you.
+
+gcloud config set compute/zone us-central1-a
+
+# 3. Deploy. If a Welcome to Deployment Manager message appears, click Close to dismiss it.
+
+gcloud app deploy
+
+# 4. In the just-created SSH window, to change the current working directory to /opt/bitnami, execute the following command:
+
+cd /opt/bitnami
+
+# 5. To copy the phpinfo.php script from the installation directory to a publicly accessible location under the web server document root, execute the following command:
+
+sudo sh -c 'echo "<?php phpinfo(); ?>" > apache2/htdocs/phpinfo.php'
+
+# 6. To close the SSH window, execute the following command:
+
+exit
+
+# 7. Open a new browser tab.
+
+gcloud app browse
+
+
+# 8. Type the following URL, and replace SITE_ADDRESS with the URL in the Site address field in the right pane of the lampstack page.
+
+http://SITE_ADDRESS/phpinfo.php
+
+#9. Close the phpinfo tab.
+
+kill chrome
+
